@@ -14,7 +14,7 @@ class PomodoroTimerViewModel: ObservableObject {
         self.time = time
     }
     func start() {
-        print("start")
+        print("Timer Started")
         if timer == nil{
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 if self.time > 0 {
@@ -25,12 +25,12 @@ class PomodoroTimerViewModel: ObservableObject {
         }
     }
     func stop() {
-        print("stop")
+        print("Timer Stopped")
         self.timer?.invalidate()
         self.timer = nil
     }
     func restart() {
-        print("Restart")
+        print("Timer Restarted")
         self.stop()
         self.time = 1500
     }
