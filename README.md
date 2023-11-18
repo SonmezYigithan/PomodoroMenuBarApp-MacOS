@@ -1,8 +1,11 @@
 # Pomodoro Menu Bar App
 
-## Todo
-- fix countdown text update issue
-- fix NSStatusBar Satus Item text update issue
-- add finish sound
-- change menu bar  icon
+## Bug Fixes
+- Fix countdown text update issue
+- Fix NSStatusBar status item text update issue
+
+## Features
+- Improve UI/UX design
 - Add option for changing timer minutes
+- Add finish sound
+- Change menu bar icon
