@@ -20,8 +20,9 @@ class PomodoroTimerViewModel: ObservableObject {
                 if self.time > 0 {
                     self.time -= 1
                 }
+                self.updateIcon()
             }
-            updateIcon()
+            
         }
     }
     func stop() {
@@ -35,6 +36,7 @@ class PomodoroTimerViewModel: ObservableObject {
         self.time = 1500
     }
     
+    // to show time on Menu Bar Icon
     func updateIcon() {
         let minutes = self.time / 60
         let statusBarButton = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)

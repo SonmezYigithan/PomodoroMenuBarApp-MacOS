@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct MenuView: View {
+struct HomeView: View {
     @StateObject var pomodoroTimer = PomodoroTimerViewModel(time: 1500)
-    
     @State private var isTimerActive = false
     
     var body: some View {
@@ -26,23 +25,12 @@ struct MenuView: View {
                     .padding(.horizontal,15)
                 }
             }
+            .padding(.top,15)
             
             Divider()
                 .padding(.horizontal,10)
             
-            ZStack{
-                Circle()
-                    .fill(.white)
-                    .frame(width: 150, height: 150)
-                    
-                let minutes = pomodoroTimer.time / 60
-                let seconds = pomodoroTimer.time % 60
-                
-                Text("\(minutes):\(String(format: "%02d", seconds))")
-                    .colorInvert()
-                    .font(.system(size: 30, weight: .light))
-            }
-            .padding(.bottom,10)
+            ProgressBar(pomodoroTimer: pomodoroTimer)
             
             HStack{
                 Button(action: {
@@ -63,12 +51,6 @@ struct MenuView: View {
                 .cornerRadius(10)
                 .controlSize(.large)
                 
-//                Button("Stop") {
-//                    self.pomodoroTimer.stop()
-//                }
-//                .cornerRadius(10)
-//                .controlSize(.large)
-                
                 Button(action: {
                     self.pomodoroTimer.restart()
                 }) {
@@ -83,13 +65,13 @@ struct MenuView: View {
             .padding(.bottom, 10)
             
         }
-        .frame(width: 300, height: 280)
+        .frame(width: 280, height: 280)
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        HomeView()
     }
 }
 

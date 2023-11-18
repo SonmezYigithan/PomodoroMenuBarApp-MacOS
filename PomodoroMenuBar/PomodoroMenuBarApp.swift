@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     var popOver = NSPopover()
     
     func applicationDidFinishLaunching(_ notification: Notification){
-        let menuView = MenuView()
+        let menuView = HomeView()
         
         // creating PopOver
         popOver.behavior = .transient
