@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 class PomodoroTimerViewModel: ObservableObject {
     @Published var time: Int
     @Published var progress: Double
     @Published var countDownTime: Int
     var timer: Timer?
+    var audioPlayer: AVAudioPlayer!
     
     init(time: Int) {
         self.time = time
@@ -26,6 +28,10 @@ class PomodoroTimerViewModel: ObservableObject {
                     self.time -= 1
                     self.progress = 1 - Double(self.time) / Double(self.countDownTime)
                     print("\(self.progress): \(self.time), \(self.countDownTime)")
+                }
+                if self.time == 0{
+                    // Timer ended
+                    self.playSound()
                 }
 //                self.updateIcon()
             }
@@ -48,10 +54,25 @@ class PomodoroTimerViewModel: ObservableObject {
         restart()
     }
     
-    // to show time on Menu Bar Icon
+    // Shows time on Menu Bar Icon
     func updateIcon() {
         let minutes = self.time / 60
         let statusBarButton = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
         statusBarButton.button?.title = "\(minutes)"
+    }
+    
+    func playSound() {
+        let url = Bundle.main.url(forResource: "completed_1", withExtension: ".mp3")
+        
+        guard url != nil else{
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url!)
+            audioPlayer?.play()
+        } catch {
+            print("\(error)")
+        }
     }
 }

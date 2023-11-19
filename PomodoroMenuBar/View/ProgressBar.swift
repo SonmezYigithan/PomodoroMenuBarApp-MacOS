@@ -29,6 +29,7 @@ struct ProgressBar: View {
                 .rotation(Angle(degrees: 270))
                 .stroke(Color(red: 1, green: 1, blue: 1),lineWidth: 6)
                 .frame(width: 150, height: 150)
+                .animation(.easeInOut, value: passedCircleProgress)
             
             // Knob
             GeometryReader { proxy in
@@ -40,6 +41,7 @@ struct ProgressBar: View {
                     .frame(width: size.width, height: size.height, alignment: .center)
                     .offset(y: -size.height / 2)
                     .rotationEffect(Angle(degrees: pomodoroTimer.progress * 360))
+                    .animation(.easeInOut, value: pomodoroTimer.progress * 360)
             }
             .frame(width: 150, height: 150)
                 
