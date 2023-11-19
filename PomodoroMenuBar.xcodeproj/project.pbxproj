@@ -10,6 +10,7 @@
 		C14BA7FB2B07EBAD00BC6199 /* PomodoroTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14BA7FA2B07EBAD00BC6199 /* PomodoroTimerViewModel.swift */; };
 		C14BA7FD2B08183500BC6199 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14BA7FC2B08183500BC6199 /* ProgressBar.swift */; };
 		C14BA8002B0AC38F00BC6199 /* completed_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C14BA7FF2B0AC38F00BC6199 /* completed_1.mp3 */; };
+		C14BA8022B0AC67900BC6199 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14BA8012B0AC67900BC6199 /* AudioPlayer.swift */; };
 		C1C575DD2977210200E49982 /* PomodoroMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C575DC2977210200E49982 /* PomodoroMenuBarApp.swift */; };
 		C1C575E12977210300E49982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C575E02977210300E49982 /* Assets.xcassets */; };
 		C1C575E42977210300E49982 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C575E32977210300E49982 /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		C14BA7FA2B07EBAD00BC6199 /* PomodoroTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimerViewModel.swift; sourceTree = "<group>"; };
 		C14BA7FC2B08183500BC6199 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		C14BA7FF2B0AC38F00BC6199 /* completed_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = completed_1.mp3; sourceTree = "<group>"; };
+		C14BA8012B0AC67900BC6199 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		C1C575D92977210200E49982 /* PomodoroMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C575DC2977210200E49982 /* PomodoroMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroMenuBarApp.swift; sourceTree = "<group>"; };
 		C1C575E02977210300E49982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				C14BA7FA2B07EBAD00BC6199 /* PomodoroTimerViewModel.swift */,
+				C14BA8012B0AC67900BC6199 /* AudioPlayer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				C14BA7FB2B07EBAD00BC6199 /* PomodoroTimerViewModel.swift in Sources */,
 				C1C575ED297721FD00E49982 /* HomeView.swift in Sources */,
+				C14BA8022B0AC67900BC6199 /* AudioPlayer.swift in Sources */,
 				C14BA7FD2B08183500BC6199 /* ProgressBar.swift in Sources */,
 				C1C575DD2977210200E49982 /* PomodoroMenuBarApp.swift in Sources */,
 			);

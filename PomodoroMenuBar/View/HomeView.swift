@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var pomodoroTimer = PomodoroTimerViewModel(time: 10)
+    @StateObject var pomodoroTimer = PomodoroTimerViewModel(time: 1500)
     @State private var isTimerActive = false
     
     var body: some View {

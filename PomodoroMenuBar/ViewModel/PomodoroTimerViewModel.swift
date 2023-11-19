@@ -31,7 +31,7 @@ class PomodoroTimerViewModel: ObservableObject {
                 }
                 if self.time == 0{
                     // Timer ended
-                    self.playSound()
+                    playSound(key: "completed_1")
                 }
 //                self.updateIcon()
             }
@@ -59,20 +59,5 @@ class PomodoroTimerViewModel: ObservableObject {
         let minutes = self.time / 60
         let statusBarButton = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
         statusBarButton.button?.title = "\(minutes)"
-    }
-    
-    func playSound() {
-        let url = Bundle.main.url(forResource: "completed_1", withExtension: ".mp3")
-        
-        guard url != nil else{
-            return
-        }
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url!)
-            audioPlayer?.play()
-        } catch {
-            print("\(error)")
-        }
     }
 }
