@@ -9,3 +9,4 @@
 - Add option for changing timer minutes
 - Add finish sound
 - Change menu bar icon
+- Change Start Button Design 
