@@ -9,9 +9,14 @@ import SwiftUI
 
 class PomodoroTimerViewModel: ObservableObject {
     @Published var time: Int
+    @Published var progress: Double
+    @Published var countDownTime: Int
     var timer: Timer?
+    
     init(time: Int) {
         self.time = time
+        self.progress = 0
+        self.countDownTime = time
     }
     func start() {
         print("Timer Started")
@@ -19,8 +24,10 @@ class PomodoroTimerViewModel: ObservableObject {
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 if self.time > 0 {
                     self.time -= 1
+                    self.progress = 1 - Double(self.time) / Double(self.countDownTime)
+                    print("\(self.progress): \(self.time), \(self.countDownTime)")
                 }
-                self.updateIcon()
+//                self.updateIcon()
             }
             
         }
@@ -33,7 +40,12 @@ class PomodoroTimerViewModel: ObservableObject {
     func restart() {
         print("Timer Restarted")
         self.stop()
-        self.time = 1500
+        self.progress = 0
+        self.time = self.countDownTime
+    }
+    func updateTime(newTime: Int){
+        self.countDownTime = newTime
+        restart()
     }
     
     // to show time on Menu Bar Icon

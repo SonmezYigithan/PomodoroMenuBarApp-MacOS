@@ -1,7 +1,6 @@
 # Pomodoro Menu Bar App
 
 ## Bug Fixes
-- Fix countdown text update issue
 - Fix NSStatusBar status item text update issue
 
 ## Features
