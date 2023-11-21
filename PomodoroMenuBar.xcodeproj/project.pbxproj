@@ -11,6 +11,7 @@
 		C14BA7FD2B08183500BC6199 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14BA7FC2B08183500BC6199 /* ProgressBar.swift */; };
 		C14BA8002B0AC38F00BC6199 /* completed_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C14BA7FF2B0AC38F00BC6199 /* completed_1.mp3 */; };
 		C14BA8022B0AC67900BC6199 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14BA8012B0AC67900BC6199 /* AudioPlayer.swift */; };
+		C1C033CF2B0BF5CD0041A294 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C033CE2B0BF5CD0041A294 /* AppIcon.png */; };
 		C1C575DD2977210200E49982 /* PomodoroMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C575DC2977210200E49982 /* PomodoroMenuBarApp.swift */; };
 		C1C575E12977210300E49982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C575E02977210300E49982 /* Assets.xcassets */; };
 		C1C575E42977210300E49982 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C575E32977210300E49982 /* Preview Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		C14BA7FC2B08183500BC6199 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		C14BA7FF2B0AC38F00BC6199 /* completed_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = completed_1.mp3; sourceTree = "<group>"; };
 		C14BA8012B0AC67900BC6199 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		C1C033CE2B0BF5CD0041A294 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		C1C575D92977210200E49982 /* PomodoroMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C575DC2977210200E49982 /* PomodoroMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroMenuBarApp.swift; sourceTree = "<group>"; };
 		C1C575E02977210300E49982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
+		C1C033D02B0BF5DF0041A294 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C1C033CE2B0BF5CD0041A294 /* AppIcon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		C1C575D02977210200E49982 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 		C1C575DB2977210200E49982 /* PomodoroMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				C1C033D02B0BF5DF0041A294 /* Images */,
 				C14BA7FE2B0AC2FC00BC6199 /* Audio */,
 				C14BA7F82B07AC0800BC6199 /* Preview Content */,
 				C14BA7F72B07AAC200BC6199 /* Helper Files */,
@@ -171,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C033CF2B0BF5CD0041A294 /* AppIcon.png in Resources */,
 				C1C575E42977210300E49982 /* Preview Assets.xcassets in Resources */,
 				C14BA8002B0AC38F00BC6199 /* completed_1.mp3 in Resources */,
 				C1C575E12977210300E49982 /* Assets.xcassets in Resources */,

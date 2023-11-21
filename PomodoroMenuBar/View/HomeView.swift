@@ -10,12 +10,18 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var pomodoroTimer = PomodoroTimerViewModel(time: 1500)
     @State private var isTimerActive = false
+    @State var taskName = ""
+    @FocusState private var taskNameFieldFocused: Bool
+    
+    @State private var isEditing: Bool = false
     
     var body: some View {
         VStack{
             ZStack{
-                Text("Focus Time")
-                    .bold()
+                TextField("Type task Name..",text: $taskName)
+                    .padding(.trailing,50)
+                    .padding(.leading,10)
+                    .textFieldStyle(PlainTextFieldStyle())
                 
                 HStack{
                     Spacer()
@@ -25,10 +31,13 @@ struct HomeView: View {
                     .padding(.horizontal,15)
                 }
             }
-            .padding(.top,15)
+            .onTapGesture {
+                self.isEditing = false
+            }
             
             Divider()
                 .padding(.horizontal,10)
+                .padding(.bottom, 10)
             
             ProgressBar(pomodoroTimer: pomodoroTimer)
             
@@ -47,9 +56,10 @@ struct HomeView: View {
                     Image(systemName: isTimerActive ? "pause.fill" : "play.fill")
                         .padding(.horizontal, 18)
                         .padding(.vertical, 8)
+                        .font(.system(size: 18))
                 }
-                .cornerRadius(10)
                 .controlSize(.large)
+                .buttonStyle(PlainButtonStyle())
                 
                 Button(action: {
                     self.pomodoroTimer.restart()
@@ -57,15 +67,15 @@ struct HomeView: View {
                     Image(systemName: "return.left")
                         .padding(.horizontal, 18)
                         .padding(.vertical, 8)
-                        .font(.system(size: 12))
+                        .font(.system(size: 18))
                 }
-                .cornerRadius(10)
                 .controlSize(.large)
+                .buttonStyle(PlainButtonStyle())
             }
             .padding(.bottom, 10)
             
         }
-        .frame(width: 280, height: 280)
+        .frame(width: 250, height: 280)
     }
 }
 
