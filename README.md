@@ -7,4 +7,4 @@
 - Improve UI/UX design
 - Add option for changing timer minutes
 - Change menu bar icon
-- Change Start Button Design 
+- Change Start Button Design

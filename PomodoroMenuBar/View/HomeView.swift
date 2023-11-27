@@ -8,20 +8,31 @@
 import SwiftUI
 
 struct HomeView: View {
+    enum focusType{
+        case taskNameField
+        case timeField
+    }
+    
     @StateObject var pomodoroTimer = PomodoroTimerViewModel(time: 1500)
     @State private var isTimerActive = false
     @State var taskName = ""
-    @FocusState private var taskNameFieldFocused: Bool
-    
-    @State private var isEditing: Bool = false
+    @FocusState var focusField: Bool?
+    @State var isTextFieldInteractable = true
     
     var body: some View {
         VStack{
             ZStack{
                 TextField("Type task Name..",text: $taskName)
+                    .focused($focusField, equals: true)
                     .padding(.trailing,50)
                     .padding(.leading,10)
                     .textFieldStyle(PlainTextFieldStyle())
+                    .onSubmit {
+                        focusField = nil
+                        isTextFieldInteractable = false
+                    }
+                    .disabled(!isTextFieldInteractable)
+                    .foregroundColor(.primary)
                 
                 HStack{
                     Spacer()
@@ -31,9 +42,7 @@ struct HomeView: View {
                     .padding(.horizontal,15)
                 }
             }
-            .onTapGesture {
-                self.isEditing = false
-            }
+            
             
             Divider()
                 .padding(.horizontal,10)
@@ -63,6 +72,7 @@ struct HomeView: View {
                 
                 Button(action: {
                     self.pomodoroTimer.restart()
+                    isTextFieldInteractable = true
                 }) {
                     Image(systemName: "return.left")
                         .padding(.horizontal, 18)
