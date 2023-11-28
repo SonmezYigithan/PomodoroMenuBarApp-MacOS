@@ -48,9 +48,15 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let MenuButton = statusItem?.button{
-            MenuButton.image = NSImage(systemSymbolName: "icloud.and.arrow.up.fill", accessibilityDescription: nil)
+            if let image = NSImage(named: "AppIcon"){
+                image.size = NSSize(width: 24, height: 24)
+                MenuButton.image = image
+                MenuButton.action = #selector(MenuButtonToggle)
+            } else{
+                print("Error Loading the Image")
+            }
             
-            MenuButton.action = #selector(MenuButtonToggle)
+            PomodoroTimerViewModel.shared.setup(appDelegate: self)
         }
         
     }

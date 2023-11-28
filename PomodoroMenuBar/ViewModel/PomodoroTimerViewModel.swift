@@ -9,9 +9,13 @@ import SwiftUI
 import AVFoundation
 
 class PomodoroTimerViewModel: ObservableObject {
+    static let shared = PomodoroTimerViewModel(time: 1500)
+    
     @Published var time: Int
     @Published var progress: Double
     @Published var countDownTime: Int
+    
+    var appDelegate: AppDelegate?
     var timer: Timer?
     var audioPlayer: AVAudioPlayer!
     
@@ -33,7 +37,7 @@ class PomodoroTimerViewModel: ObservableObject {
                     // Timer ended
                     playSound(key: "completed_1")
                 }
-//                self.updateIcon()
+                self.updateIcon()
             }
             
         }
@@ -57,7 +61,15 @@ class PomodoroTimerViewModel: ObservableObject {
     // Shows time on Menu Bar Icon
     func updateIcon() {
         let minutes = self.time / 60
-        let statusBarButton = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
-        statusBarButton.button?.title = "\(minutes)"
+        let seconds = self.time % 60
+        
+        if let button = appDelegate?.statusItem?.button {
+            let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+            button.title = "\(formattedTime)  " // Add spaces for separation
+        }
+    }
+    
+    func setup(appDelegate: AppDelegate){
+        self.appDelegate = appDelegate
     }
 }

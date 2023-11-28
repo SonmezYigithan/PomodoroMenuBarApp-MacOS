@@ -13,7 +13,7 @@ struct HomeView: View {
         case timeField
     }
     
-    @StateObject var pomodoroTimer = PomodoroTimerViewModel(time: 1500)
+    @StateObject var pomodoroTimer = PomodoroTimerViewModel.shared
     @State private var isTimerActive = false
     @State var taskName = ""
     @FocusState var focusField: Bool?
