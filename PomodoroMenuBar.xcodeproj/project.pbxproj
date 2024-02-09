@@ -43,14 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C14BA7F72B07AAC200BC6199 /* Helper Files */ = {
+		C14BA7F72B07AAC200BC6199 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				C1C575E32977210300E49982 /* Preview Assets.xcassets */,
 				C1C575DC2977210200E49982 /* PomodoroMenuBarApp.swift */,
 				C1C575E02977210300E49982 /* Assets.xcassets */,
 			);
-			name = "Helper Files";
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		C14BA7F82B07AC0800BC6199 /* Preview Content */ = {
@@ -105,12 +105,12 @@
 		C1C575DB2977210200E49982 /* PomodoroMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				C1C575EB297721EE00E49982 /* View */,
+				C14BA7F92B07EB3A00BC6199 /* ViewModel */,
 				C1C033D02B0BF5DF0041A294 /* Images */,
 				C14BA7FE2B0AC2FC00BC6199 /* Audio */,
+				C14BA7F72B07AAC200BC6199 /* SupportingFiles */,
 				C14BA7F82B07AC0800BC6199 /* Preview Content */,
-				C14BA7F72B07AAC200BC6199 /* Helper Files */,
-				C14BA7F92B07EB3A00BC6199 /* ViewModel */,
-				C1C575EB297721EE00E49982 /* View */,
 			);
 			path = PomodoroMenuBar;
 			sourceTree = "<group>";
