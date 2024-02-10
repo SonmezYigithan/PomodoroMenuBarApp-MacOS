@@ -14,6 +14,7 @@ class PomodoroTimerViewModel: ObservableObject {
     @Published var time: Int
     @Published var progress: Double
     @Published var countDownTime: Int
+    @Published var isTimerActive: Bool
     
     var appDelegate: AppDelegate?
     var timer: Timer?
@@ -21,12 +22,20 @@ class PomodoroTimerViewModel: ObservableObject {
     
     init(time: Int) {
         self.time = time
-        self.progress = 0
-        self.countDownTime = time
+        progress = 0
+        countDownTime = time
+        isTimerActive = false
     }
+    
     func start() {
         print("Timer Started")
-        if timer == nil{
+        if isTimerActive {
+            return
+        }
+        
+        isTimerActive = true
+        
+        if timer == nil {
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                 if self.time > 0 {
                     self.time -= 1
@@ -42,17 +51,29 @@ class PomodoroTimerViewModel: ObservableObject {
             
         }
     }
+    
     func stop() {
         print("Timer Stopped")
-        self.timer?.invalidate()
-        self.timer = nil
+        timer?.invalidate()
+        timer = nil
+        isTimerActive = false
     }
+    
+    func toggleStartStop() {
+        if isTimerActive {
+            stop()
+        }else {
+            start()
+        }
+    }
+    
     func restart() {
         print("Timer Restarted")
-        self.stop()
-        self.progress = 0
-        self.time = self.countDownTime
+        stop()
+        progress = 0
+        time = self.countDownTime
     }
+    
     func updateTime(newTime: Int){
         self.countDownTime = newTime
         restart()

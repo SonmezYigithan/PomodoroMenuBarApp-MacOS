@@ -13,8 +13,7 @@ struct HomeView: View {
         case timeField
     }
     
-    @StateObject var pomodoroTimer = PomodoroTimerViewModel.shared
-    @State private var isTimerActive = false
+    @StateObject var timer = PomodoroTimerViewModel.shared
     @State var taskName = ""
     @FocusState var focusField: Bool?
     @State var isTextFieldInteractable = true
@@ -48,21 +47,13 @@ struct HomeView: View {
                 .padding(.horizontal,10)
                 .padding(.bottom, 10)
             
-            ProgressBar(pomodoroTimer: pomodoroTimer)
+            ProgressBar(pomodoroTimer: timer)
             
             HStack{
                 Button(action: {
-                    print("isTimerActive: \(isTimerActive)")
-                    if isTimerActive{
-                        self.pomodoroTimer.stop()
-                        isTimerActive = false
-                    }
-                    else{
-                        self.pomodoroTimer.start()
-                        isTimerActive = true
-                    }
+                    timer.toggleStartStop()
                 }) {
-                    Image(systemName: isTimerActive ? "pause.fill" : "play.fill")
+                    Image(systemName: timer.isTimerActive ? "pause.fill" : "play.fill")
                         .padding(.horizontal, 18)
                         .padding(.vertical, 8)
                         .font(.system(size: 18))
@@ -71,7 +62,7 @@ struct HomeView: View {
                 .buttonStyle(PlainButtonStyle())
                 
                 Button(action: {
-                    self.pomodoroTimer.restart()
+                    self.timer.restart()
                     isTextFieldInteractable = true
                 }) {
                     Image(systemName: "return.left")

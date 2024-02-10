@@ -47,11 +47,13 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         // Creating Status Bar Button
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
-        if let MenuButton = statusItem?.button{
+        if let menuButton = statusItem?.button{
             if let image = NSImage(named: "AppIcon"){
                 image.size = NSSize(width: 24, height: 24)
-                MenuButton.image = image
-                MenuButton.action = #selector(MenuButtonToggle)
+                image.isTemplate = true
+                menuButton.image = image
+                menuButton.action = #selector(menuBarButtonClicked)
+                menuButton.sendAction(on: [.leftMouseUp, .rightMouseUp])
             } else{
                 print("Error Loading the Image")
             }
@@ -62,11 +64,24 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     }
     
     // Button Action
-    @objc func MenuButtonToggle(){
+    @objc func menuBarButtonClicked(_ sender: NSStatusBarButton) {
+        let event = NSApp.currentEvent!
         
-        // showing PopOver
-        if let menuButton = statusItem?.button{
-            self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+        if event.type == NSEvent.EventType.rightMouseUp {
+            print("Right Button Clicked")
+            PomodoroTimerViewModel.shared.toggleStartStop()
+        } else {
+            // showing PopOver
+            if let menuButton = statusItem?.button{
+                self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+            }
+        }
+    }
+    
+    @objc func handleRightClick(_ sender: NSClickGestureRecognizer) {
+        if sender.state == .ended {
+            // Right-click logic here
+            print("Right-click detected on the menu bar icon.")
         }
     }
 }
