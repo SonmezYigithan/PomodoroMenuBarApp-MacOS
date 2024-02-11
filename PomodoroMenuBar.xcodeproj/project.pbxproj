@@ -16,6 +16,7 @@
 		C1C575E12977210300E49982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C575E02977210300E49982 /* Assets.xcassets */; };
 		C1C575E42977210300E49982 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C575E32977210300E49982 /* Preview Assets.xcassets */; };
 		C1C575ED297721FD00E49982 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C575EC297721FD00E49982 /* HomeView.swift */; };
+		C1E4B7022B78423B00FCCB16 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4B7012B78423B00FCCB16 /* NSImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C1C575E32977210300E49982 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C1C575E52977210300E49982 /* PomodoroMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PomodoroMenuBar.entitlements; sourceTree = "<group>"; };
 		C1C575EC297721FD00E49982 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C1E4B7012B78423B00FCCB16 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		C1C575DB2977210200E49982 /* PomodoroMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				C1E4B7002B78422800FCCB16 /* Extensions */,
 				C1C575EB297721EE00E49982 /* View */,
 				C14BA7F92B07EB3A00BC6199 /* ViewModel */,
 				C1C033D02B0BF5DF0041A294 /* Images */,
@@ -122,6 +125,14 @@
 				C14BA7FC2B08183500BC6199 /* ProgressBar.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C1E4B7002B78422800FCCB16 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1E4B7012B78423B00FCCB16 /* NSImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +211,7 @@
 				C1C575ED297721FD00E49982 /* HomeView.swift in Sources */,
 				C14BA8022B0AC67900BC6199 /* AudioPlayer.swift in Sources */,
 				C14BA7FD2B08183500BC6199 /* ProgressBar.swift in Sources */,
+				C1E4B7022B78423B00FCCB16 /* NSImage+Extensions.swift in Sources */,
 				C1C575DD2977210200E49982 /* PomodoroMenuBarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

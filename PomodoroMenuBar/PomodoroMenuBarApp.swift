@@ -60,7 +60,6 @@ class AppDelegate: NSObject, NSApplicationDelegate{
             
             PomodoroTimerViewModel.shared.setup(appDelegate: self)
         }
-        
     }
     
     // Button Action
@@ -68,20 +67,12 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         let event = NSApp.currentEvent!
         
         if event.type == NSEvent.EventType.rightMouseUp {
-            print("Right Button Clicked")
             PomodoroTimerViewModel.shared.toggleStartStop()
         } else {
             // showing PopOver
             if let menuButton = statusItem?.button{
                 self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
             }
-        }
-    }
-    
-    @objc func handleRightClick(_ sender: NSClickGestureRecognizer) {
-        if sender.state == .ended {
-            // Right-click logic here
-            print("Right-click detected on the menu bar icon.")
         }
     }
 }
